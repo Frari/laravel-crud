@@ -1,8 +1,8 @@
 
 @extends('layouts.app')
 @section('content')
-  <h1>Tutti i prodotti</h1>
-
+  <h1 class="pull-left">Tutti i prodotti</h1>
+  <a href="{{route('products.create')}}" class="btn btn-primary pull-right mb-4">Aggiungi nuovo</a>
     <table class="table">
   <thead>
     <tr>

@@ -14,71 +14,49 @@ class ProductController extends Controller
      */
     public function index()
     {
-      $products = Product::all();
+      $products = Product::orderBy('id', 'desc')->get();
       return view('products.index', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+      return view('products.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+      $dati = $request->all();
+      $nuovo_prodotto = new Product();
+      // $nuovo_prodotto->name = $dati['name'];
+      // $nuovo_prodotto->description = $dati['description'];
+      // $nuovo_prodotto->price = $dati['price'];
+      $nuovo_prodotto->fill($dati);
+      $nuovo_prodotto->save();
+
+      return redirect()->route('products.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Product $product)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Product $product)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Product $product)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Product $product)
     {
         //

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    phpinfo();
-});
+    return view('welcome');
+})->name('home');
 
-Route::resource('/product', 'ProductController');
+Route::resource('products', 'ProductController');
