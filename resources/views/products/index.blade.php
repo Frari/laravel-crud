@@ -10,6 +10,7 @@
       <th>NOME</th>
       <th>DESCRIZIONE</th>
       <th>PREZZO</th>
+      <th>Azioni</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,9 @@
       <td>{{$product->name}}</td>
       <td>{{$product->description}}</td>
       <td>{{$product->price}}</td>
+      <td>
+        <a href="{{route('products.show', $product->id)}}" class="btn btn-info">Visualizza</a>
+      </td>
     </tr>
 
   @empty

@@ -39,9 +39,16 @@ class ProductController extends Controller
     }
 
 
-    public function show(Product $product)
+    public function show($product_id)
     {
-        //
+      $product = Product::find($product_id);
+        if(empty($product)) {
+          abort(404);
+        }
+        $data = [
+          'product' => $product
+        ];
+        return view('products.show', $data);
     }
 
 
